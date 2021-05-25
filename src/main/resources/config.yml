@@ -1,6 +1,7 @@
 BLOCK-REPAIR: CHEST #you need post a Minecraft name for example CHEST ANVIL ENDER_CHEST....
+BLOCK-NAME: "&cCofre Especial"
 MONEY: 300
 REPAIR-MESSAGE: "&cHas been repair"
-BAD-CLICK: "&cUse your RIGHT CLICK"
 NO-MONEY: "&cYou dont have money to repair your item"
 NO-ITEM: "&cYou dont have item to repair"
+REPAIR-SOUNDS: CAT_MEOW

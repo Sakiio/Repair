@@ -16,7 +16,7 @@ public class RepairReload implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (sender.hasPermission("repair.reload") && !(sender instanceof Player)){
-            sender.sendMessage("&cYou dont have perms to use this!");
+            sender.sendMessage(Color.translate("&cYou dont have perms to use this!"));
             return false;
         }
         Repair.getInstance().reloadConfig();

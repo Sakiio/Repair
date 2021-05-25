@@ -3,6 +3,7 @@ package me.sakio.repair.repair.listener;
 import me.sakio.repair.repair.Color;
 import me.sakio.repair.repair.Repair;
 import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -17,16 +18,21 @@ import org.bukkit.scheduler.BukkitRunnable;
  * Class: RepairListener
  */
 public class RepairListener implements Listener {
-    @EventHandler
     private void onClickRepair(PlayerInteractEvent event) {
         Player player = event.getPlayer();
+
         if (event.getAction() != Action.RIGHT_CLICK_BLOCK) {
-            player.sendMessage(Color.translate(Repair.getInstance().getConfig().getString("BAD-CLICK")));
             return;
         }
+
+        if (event.getClickedBlock().getType() == Material.matchMaterial(Repair.getInstance().getConfig().getString("BLOCK-REPAIR"))) {
+            event.setCancelled(true);
+        }
+
         if (event.getClickedBlock().getType() != Material.matchMaterial(Repair.getInstance().getConfig().getString("BLOCK-REPAIR"))) {
             return;
         }
+
         if (Repair.getEcon().getBalance(player) < Repair.getInstance().getConfig().getInt("MONEY")){
             player.sendMessage(Color.translate(Repair.getInstance().getConfig().getString("NO-MONEY")));
             return;
@@ -51,6 +57,9 @@ public class RepairListener implements Listener {
         };
         task.runTaskLater(Repair.getInstance(), 3*20);
         player.setItemInHand(new ItemStack(Material.AIR));
+        player.playSound(player.getLocation(),
+                Sound.valueOf(Repair.getInstance().getConfig().getString("REPAIR-SOUNDS")),
+                1F, 1F);
         player.updateInventory();
     }
 }

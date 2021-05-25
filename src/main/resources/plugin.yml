@@ -3,5 +3,6 @@ version: ${project.version}
 main: me.sakio.repair.repair.Repair
 api-version: 1.8
 authors: [Sakio]
+
 commands:
   rreload:
