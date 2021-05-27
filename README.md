@@ -1,2 +1,2 @@
 # Repair
-This addons have got compatibility with vault to use, you can repair item when click blocks (edit in config).
+Repair is a simple add-on for repairing items in minecraft using economy from vault and an animation somewhat different than usual.
