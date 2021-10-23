@@ -1,6 +1,6 @@
 package me.sakio.repair.repair.listener;
 
-import me.sakio.repair.repair.Color;
+import me.sakio.repair.repair.utils.Color;
 import me.sakio.repair.repair.Repair;
 import org.bukkit.Material;
 import org.bukkit.Sound;
@@ -18,6 +18,7 @@ import org.bukkit.scheduler.BukkitRunnable;
  * Class: RepairListener
  */
 public class RepairListener implements Listener {
+    @EventHandler
     private void onClickRepair(PlayerInteractEvent event) {
         Player player = event.getPlayer();
 
@@ -57,9 +58,11 @@ public class RepairListener implements Listener {
         };
         task.runTaskLater(Repair.getInstance(), 3*20);
         player.setItemInHand(new ItemStack(Material.AIR));
+        player.sendMessage(Color.translate("&4Item start to repair"));
         player.playSound(player.getLocation(),
                 Sound.valueOf(Repair.getInstance().getConfig().getString("REPAIR-SOUNDS")),
-                1F, 1F);
+                1F,
+                1F);
         player.updateInventory();
     }
 }

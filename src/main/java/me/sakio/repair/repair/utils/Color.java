@@ -1,4 +1,4 @@
-package me.sakio.repair.repair;
+package me.sakio.repair.repair.utils;
 
 import org.bukkit.ChatColor;
 

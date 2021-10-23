@@ -6,3 +6,6 @@ authors: [Sakio]
 
 commands:
   rreload:
+    description: reload all config file
+  ritem:
+    description: give you a repair item
