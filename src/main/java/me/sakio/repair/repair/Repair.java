@@ -2,7 +2,7 @@ package me.sakio.repair.repair;
 
 import lombok.Getter;
 import me.sakio.repair.repair.commands.ItemCommand;
-import me.sakio.repair.repair.commands.RepairReload;
+import me.sakio.repair.repair.commands.ReloadCommand;
 import me.sakio.repair.repair.listener.RepairListener;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.Bukkit;
@@ -31,7 +31,7 @@ public final class Repair extends JavaPlugin {
         PluginManager pluginManager = getServer().getPluginManager();
         pluginManager.registerEvents(new RepairListener(), getInstance());
 
-        this.getCommand("rreload").setExecutor(new RepairReload());
+        this.getCommand("rreload").setExecutor(new ReloadCommand());
         this.getCommand("ritem").setExecutor(new ItemCommand());
     }
 

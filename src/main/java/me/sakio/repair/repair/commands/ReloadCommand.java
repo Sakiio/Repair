@@ -12,7 +12,7 @@ import org.bukkit.entity.Player;
  * Date: 19/05/2021 @ 18:31
  * Class: RepairReload
  */
-public class RepairReload implements CommandExecutor {
+public class ReloadCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (!sender.hasPermission("repair.reload")){
