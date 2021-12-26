@@ -1,4 +1,4 @@
-name: Repair
+name: sRepair
 version: ${project.version}
 main: me.sakio.repair.repair.Repair
 api-version: 1.8

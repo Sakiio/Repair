@@ -1,6 +1,6 @@
 BLOCK-REPAIR: CHEST #you need post a Minecraft name for example CHEST ANVIL ENDER_CHEST....
 BLOCK-NAME: "&cSpecial Item"
-MONEY: 300 #this is a price when you try a repair item
+MONEY: 300 #the money you need when you fix the item
 REPAIR-MESSAGE: "&cHas been repair"
 NO-MONEY: "&cYou don't have money to repair your item"
 NO-ITEM: "&cYou don't have item to repair"

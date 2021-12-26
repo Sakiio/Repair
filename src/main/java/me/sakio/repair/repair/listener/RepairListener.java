@@ -22,17 +22,12 @@ public class RepairListener implements Listener {
     private void onClickRepair(PlayerInteractEvent event) {
         Player player = event.getPlayer();
 
-        if (event.getAction() != Action.RIGHT_CLICK_BLOCK) {
-            return;
-        }
+        if (event.getAction() != Action.RIGHT_CLICK_BLOCK) return;
 
-        if (event.getClickedBlock().getType() == Material.matchMaterial(Repair.getInstance().getConfig().getString("BLOCK-REPAIR"))) {
-            event.setCancelled(true);
-        }
 
-        if (event.getClickedBlock().getType() != Material.matchMaterial(Repair.getInstance().getConfig().getString("BLOCK-REPAIR"))) {
-            return;
-        }
+        if (event.getClickedBlock().getType() == Material.matchMaterial(Repair.getInstance().getConfig().getString("BLOCK-REPAIR"))) event.setCancelled(true);
+
+        if (event.getClickedBlock().getType() != Material.matchMaterial(Repair.getInstance().getConfig().getString("BLOCK-REPAIR"))) return;
 
         if (Repair.getEcon().getBalance(player) < Repair.getInstance().getConfig().getInt("MONEY")){
             player.sendMessage(Color.translate(Repair.getInstance().getConfig().getString("NO-MONEY")));
@@ -53,7 +48,6 @@ public class RepairListener implements Listener {
                 Repair.getEcon().withdrawPlayer(player, Repair.getInstance().getConfig().getInt("MONEY"));
                 player.setItemInHand(item);
                 player.updateInventory();
-
             }
         };
         task.runTaskLater(Repair.getInstance(), 3*20);
